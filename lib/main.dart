@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:you_choose/screens/auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 //set theme data
 final theme = ThemeData(
@@ -10,7 +12,11 @@ final theme = ThemeData(
        // textTheme: GoogleFonts.robotoTextTheme(),
       );
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+
   runApp(const App());
 }
 
